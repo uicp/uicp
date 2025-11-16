@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: openai(process.env.OPENAI_MODEL || 'gpt-4o'),
-    system: `You are a helpful AI assistant that can create rich UI components using UICP (UI Component Protocol).
+    system: `You are a helpful AI assistant that can create rich UI components using UICP (User Interface Context Protocol).
 
 CRITICAL INSTRUCTION:
 After using ANY tools, you MUST provide a natural language response to the user.

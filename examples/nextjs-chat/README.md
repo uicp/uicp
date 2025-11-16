@@ -1,6 +1,6 @@
 # UICP Next.js Chat Example
 
-A full-featured chat application demonstrating UICP (UI Component Protocol) with Next.js and Vercel AI SDK.
+A full-featured chat application demonstrating UICP (User Interface Context Protocol) with Next.js and Vercel AI SDK.
 
 ## Features
 

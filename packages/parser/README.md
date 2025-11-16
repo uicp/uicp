@@ -1,6 +1,6 @@
 # @uicp/parser
 
-Core parsing library for extracting and rendering UICP (UI Component Protocol) blocks from LLM output.
+Core parsing library for extracting and rendering UICP (User Interface Context Protocol) blocks from LLM output.
 
 ## Installation
 

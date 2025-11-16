@@ -2,7 +2,7 @@
   "name": "uicp-monorepo",
   "version": "0.1.0",
   "private": true,
-  "description": "UICP (UI Component Protocol) - Enable LLM-based agents to describe and render UI components dynamically",
+  "description": "UICP (User Interface Context Protocol) - Enable LLM-based agents to describe and render UI components dynamically",
   "workspaces": [
     "packages/*",
     "examples/*"

@@ -1,6 +1,6 @@
 # UICP Monorepo
 
-**UICP (UI Component Protocol)** enables LLM-based agents to describe and render UI components dynamically. This monorepo contains framework-agnostic packages for parsing and creating UICP components, plus a Next.js example application.
+**UICP (User Interface Context Protocol)** enables LLM-based agents to describe and render UI components dynamically. This monorepo contains framework-agnostic packages for parsing and creating UICP components, plus a Next.js example application.
 
 ## Packages
 

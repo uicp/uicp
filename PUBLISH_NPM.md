@@ -87,7 +87,7 @@ Or create a GitHub release with notes:
 
 ## 🎉 First Release
 
-UICP (UI Component Protocol) enables LLM-based agents to describe and render UI components dynamically.
+UICP (User Interface Context Protocol) enables LLM-based agents to describe and render UI components dynamically.
 
 ### Packages
 

@@ -5,7 +5,7 @@ Please refer to the uicp-ai-sdk-chat application that we've added to this Cursor
 UICP Node Packages PRD
 Overview
 
-The UICP (UI Component Protocol) project aims to enable LLM-based agents to describe and render UI components dynamically. We will create a monorepo (GitHub org: uicp) containing multiple Node.js packages under the @uicp NPM scope. The focus is on Node/TypeScript packages (no Python in this phase), providing the core parsing logic and integration tools for UICP. We will also include a minimal Next.js example application to demonstrate usage. The design will prioritize flexibility (allowing applications to supply their own component definitions), concise implementation, and adherence to patterns from popular open-source Node packages.
+The UICP (UI Context Protocol) project aims to enable LLM-based agents to describe and render UI components dynamically. We will create a monorepo (GitHub org: uicp) containing multiple Node.js packages under the @uicp NPM scope. The focus is on Node/TypeScript packages (no Python in this phase), providing the core parsing logic and integration tools for UICP. We will also include a minimal Next.js example application to demonstrate usage. The design will prioritize flexibility (allowing applications to supply their own component definitions), concise implementation, and adherence to patterns from popular open-source Node packages.
 
 Monorepo Structure
 

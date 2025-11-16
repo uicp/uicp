@@ -1,6 +1,6 @@
 # @uicp/tools
 
-Framework-agnostic AI tools for UICP (UI Component Protocol) component discovery and creation.
+Framework-agnostic AI tools for UICP (User Interface Context Protocol) component discovery and creation.
 
 ## Installation
 

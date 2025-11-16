@@ -1,10 +1,10 @@
 # UICP Installation Guide for AI Coding Assistants
 
-This guide helps you install and configure UICP (UI Component Protocol) in an existing chat application.
+This guide helps you install and configure UICP (User Interface Context Protocol) in an existing chat application.
 
 ## What is UICP?
 
-UICP (UI Component Protocol) enables LLM-based agents to dynamically describe and render UI components in chat interfaces. Instead of only returning text, AI agents can:
+UICP (User Interface Context Protocol) enables LLM-based agents to dynamically describe and render UI components in chat interfaces. Instead of only returning text, AI agents can:
 
 - **Discover** available UI components and their schemas
 - **Create** structured component blocks that render as rich UI

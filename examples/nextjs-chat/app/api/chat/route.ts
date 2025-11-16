@@ -15,18 +15,53 @@ export const maxDuration = 30;
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const result = await streamText({
+  const result = streamText({
     model: openai(process.env.OPENAI_MODEL || 'gpt-4o'),
     system: `You are a helpful AI assistant that can create rich UI components using UICP (UI Component Protocol).
 
-When appropriate, you can use UI components to make your responses more engaging and visual. You have access to tools for discovering available components and creating them.
+CRITICAL INSTRUCTION:
+After using ANY tools, you MUST provide a natural language response to the user.
+NEVER finish without writing a text response.
+
+Tool Usage Pattern:
+1. FIRST: Always call get_ui_components to check what visual components are available
+2. Use other tools to gather information if needed
+3. If a component fits, call create_ui_component
+4. ALWAYS write your final text response to the user
+
+UICP (User Interface Context Protocol) - MANDATORY WORKFLOW:
+
+RULE: Before preparing ANY response, you MUST call get_ui_components to check for visual components.
+
+Full workflow:
+
+STEP 1 (MANDATORY): Call get_ui_components
+        - You can filter by type (e.g. "card", "table") or leave empty to see all
+        - This shows you what visual components are available
+
+STEP 2 (IF COMPONENT AVAILABLE): If you found a matching component in step 1:
+        - Call create_ui_component with:
+          * uid: the component identifier (e.g. "SimpleCard", "DataTable")
+          * data: object with all required fields from the schema
+        - This returns a "uicp_block" string
+
+STEP 3 (MANDATORY): Write your final text response:
+        - Include friendly text
+        - If you created a component, paste the ENTIRE uicp_block in your response
+        - You MUST respond with text - tool calls alone are not enough!
 
 Available component types:
 - SimpleCard: For displaying information in a card format
 - DataTable: For showing tabular data
 
-Use these components when they make the information clearer or more organized. Always explain what you're showing in plain text along with the component.`,
+Example: User asks "Show me a card with my info"
+1. Call get_ui_components → find "SimpleCard"
+2. Call create_ui_component with data → get uicp_block
+3. Write: "Here's your card: [paste uicp_block] Let me know if you need changes!"
+
+REMEMBER: Always check for components first, always respond with text!`,
     messages,
+    maxSteps: 10,
     tools: {
       get_ui_components: tool({
         description: `Discover available UI components. Use this to find out what components you can use and their schemas.`,
@@ -60,6 +95,7 @@ Use these components when they make the information clearer or more organized. A
         },
       }),
     },
+    experimental_continueSteps: true,
   });
 
   return result.toDataStreamResponse();

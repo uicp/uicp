@@ -1,6 +1,6 @@
 {
   "name": "@uicp/parser",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "UICP parser for extracting and rendering UI components from LLM output",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -8,6 +8,10 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "browser": {
+        "import": "./dist/browser/index.mjs",
+        "default": "./dist/browser/index.mjs"
+      },
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }

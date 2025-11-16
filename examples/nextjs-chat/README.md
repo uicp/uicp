@@ -36,10 +36,10 @@ npm install
 ### 2. Configure Environment
 
 ```bash
-cp .env.example .env
+cp env.example .env.local
 ```
 
-Edit `.env` and add your OpenAI API key:
+Edit `.env.local` and add your OpenAI API key:
 
 ```env
 OPENAI_API_KEY=sk-your-api-key-here
@@ -87,7 +87,7 @@ nextjs-chat/
 ├── lib/
 │   └── uicp/
 │       └── definitions.json     # Component definitions
-├── .env.example                 # Environment template
+├── env.example                  # Environment template
 ├── next.config.mjs              # Next.js config
 ├── tailwind.config.ts           # Tailwind config
 └── package.json
@@ -189,7 +189,7 @@ That's it! The AI can now use your component.
 
 ### Change Model
 
-Edit `.env`:
+Edit `.env.local`:
 
 ```env
 OPENAI_MODEL=gpt-4-turbo
@@ -255,7 +255,7 @@ Ensure environment variables are set.
 
 ### API Errors
 
-1. Check `.env` has valid `OPENAI_API_KEY`
+1. Check `.env.local` has valid `OPENAI_API_KEY`
 2. Verify model name is correct
 3. Check API rate limits
 

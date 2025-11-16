@@ -3,6 +3,7 @@
  */
 
 import { Definitions } from './types';
+import { loadFromFileSystem } from './fs-loader';
 
 /**
  * Load definitions from a URI (URL or file path) or return object directly
@@ -26,35 +27,8 @@ export async function loadDefinitions(
     return response.json();
   }
 
-  // If it's a file path, we need to check if we're in Node.js or browser
-  if (typeof window === 'undefined') {
-    // Node.js environment - dynamic import to avoid bundling issues
-    const { readFile } = await import('fs/promises');
-    const { resolve } = await import('path');
-    
-    try {
-      const fullPath = resolve(source);
-      const content = await readFile(fullPath, 'utf-8');
-      return JSON.parse(content);
-    } catch (error) {
-      throw new Error(
-        `Failed to read definitions from file ${source}: ${error instanceof Error ? error.message : String(error)}`
-      );
-    }
-  } else {
-    // Browser environment - try to fetch as relative URL
-    try {
-      const response = await fetch(source);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      return response.json();
-    } catch (error) {
-      throw new Error(
-        `Failed to load definitions from ${source}: ${error instanceof Error ? error.message : String(error)}`
-      );
-    }
-  }
+  // For file paths, use platform-specific loader
+  return loadFromFileSystem(source);
 }
 
 /**

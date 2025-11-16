@@ -69,7 +69,7 @@ export async function loadComponent(
 
     // Dynamic import - this works differently in different environments
     // In Next.js/React, this will use the bundler's dynamic import
-    const module = await import(/* @vite-ignore */ fullPath);
+    const module = await import(/* webpackIgnore: true */ /* @vite-ignore */ fullPath);
 
     // The component could be a default export or named export
     // Try to find it by common patterns

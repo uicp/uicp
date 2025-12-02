@@ -63,3 +63,12 @@ export {
   type UICPProviderProps,
 } from './react-components';
 
+// Export streaming parser utilities
+export {
+  parseStreamingContent,
+  processStreamingContent,
+  createStreamingParserState,
+  mightContainUICPBlock,
+  type StreamingParserState,
+} from './streaming-parser';
+
